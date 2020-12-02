@@ -10,7 +10,7 @@ services:
       - type: bind
         source: ./elasticsearch/config/elasticsearch.yml
         target: /usr/share/elasticsearch/config/elasticsearch.yml
-        read_only: true
+        read_only: false
       - type: volume
         source: elasticsearch
         target: /usr/share/elasticsearch/data
@@ -35,11 +35,11 @@ services:
       - type: bind
         source: ./logstash/config/logstash.yml
         target: /usr/share/logstash/config/logstash.yml
-        read_only: true
+        read_only: false
       - type: bind
         source: ./logstash/pipeline
         target: /usr/share/logstash/pipeline
-        read_only: true
+        read_only: false
     ports:
       - "5044:5044"
       - "5000:5000/tcp"
@@ -61,7 +61,7 @@ services:
       - type: bind
         source: ./kibana/config/kibana.yml
         target: /usr/share/kibana/config/kibana.yml
-        read_only: true
+        read_only: false
     ports:
       - "5601:5601"
     networks:
